@@ -1,5 +1,5 @@
 === Team ===
-	Contributors: wpkids
+	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
@@ -69,7 +69,11 @@ then paste this shortcode anywhere in your page to display slider<br />
 
 == Screenshots ==
 
-
+1. screenshot-1
+2. screenshot-2
+3. screenshot-3
+4. screenshot-4
+5. screenshot-5
 
 == Changelog ==
 
