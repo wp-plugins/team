@@ -55,11 +55,14 @@ After activate plugin you will see "Team" menu at left side on WordPress dashboa
 
 <br />
 <strong>How to use on page or post</strong><br />
-When Timeline Ultimate options setup done please publish Timeline Ultimate as like post or page<br />
 
-and then copy shortcode from top of <strong>Timeline Ultimate Options</strong> `[team  id="1234" ]`<br />
+After creating "Team Member" some post please see the menu on left "Team" click "New Team" fill the options "Team Options" and publish "Team" 
 
-then paste this shortcode anywhere in your page to display slider<br />
+<br />
+
+and then copy shortcode from top of <strong>Team Options</strong> `[team  id="1234" ]`<br />
+
+then paste this shortcode anywhere in your page to display team<br />
 
 
 
