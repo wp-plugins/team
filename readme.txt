@@ -62,7 +62,7 @@ After creating "Team Member" some post please see the menu on left "Team" click 
 
 and then copy shortcode from top of <strong>Team Options</strong> `[team  id="1234" ]`<br />
 
-then paste this shortcode anywhere in your page to display team<br />
+then paste shortcode anywhere in your page to display team<br />
 
 
 
