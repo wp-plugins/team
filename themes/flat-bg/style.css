@@ -77,11 +77,20 @@
 	background: url("images/pinterest.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
 	}
 
+.team-flat-bg .team-social .website{
+	background: url("images/website.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+	}
+
+
+.team-flat-bg .team-social .email{
+	background: url("images/email.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+	}	
+	
+	
 
 .team-flat-bg .team-content {
   color: rgb(102, 102, 102);
   font-size: 12px;
-  max-height: 85px;
   overflow: hidden;
   padding: 0 10px;
   text-align: left;

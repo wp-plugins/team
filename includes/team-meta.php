@@ -113,7 +113,9 @@ function meta_boxes_team_member_input( $post ) {
 	$team_member_fb = get_post_meta( $post->ID, 'team_member_fb', true );
 	$team_member_twitter = get_post_meta( $post->ID, 'team_member_twitter', true );
 	$team_member_google = get_post_meta( $post->ID, 'team_member_google', true );		
-	$team_member_pinterest = get_post_meta( $post->ID, 'team_member_pinterest', true );	
+	$team_member_pinterest = get_post_meta( $post->ID, 'team_member_pinterest', true );
+	$team_member_website = get_post_meta( $post->ID, 'team_member_website', true );	
+	$team_member_email = get_post_meta( $post->ID, 'team_member_email', true );	
 
 
 
@@ -166,6 +168,28 @@ function meta_boxes_team_member_input( $post ) {
     </tr>
 
 
+    <tr valign="top">
+        <td style="vertical-align:middle;">
+        <strong>Member Website url</strong><br /><br /> 
+        <input type="text" size="30" placeholder="http://example.com"   name="team_member_website" value="<?php if(!empty($team_member_website)) echo $team_member_website; ?>" />
+        </td>
+    </tr>
+
+
+
+
+
+	
+    <tr valign="top">
+        <td style="vertical-align:middle;">
+        <strong>Member email</strong><br /><br /> 
+        <input type="text" size="30" placeholder="hello@example.com"   name="team_member_email" value="<?php if(!empty($team_member_email)) echo $team_member_email; ?>" />
+        </td>
+    </tr>	
+	
+	
+	
+
 
 
 </table>
@@ -216,8 +240,9 @@ function meta_boxes_team_member_save( $post_id ) {
 	$team_member_fb = sanitize_text_field( $_POST['team_member_fb'] );	
 	$team_member_twitter = sanitize_text_field( $_POST['team_member_twitter'] );	
 	$team_member_google = sanitize_text_field( $_POST['team_member_google'] );
-	$team_member_pinterest = sanitize_text_field( $_POST['team_member_pinterest'] );	
-	
+	$team_member_pinterest = sanitize_text_field( $_POST['team_member_pinterest'] );
+	$team_member_website = sanitize_text_field( $_POST['team_member_website'] );	
+	$team_member_email = sanitize_text_field( $_POST['team_member_email'] );	
 	
 			
 
@@ -227,8 +252,9 @@ function meta_boxes_team_member_save( $post_id ) {
 	update_post_meta( $post_id, 'team_member_fb', $team_member_fb );	
 	update_post_meta( $post_id, 'team_member_twitter', $team_member_twitter );
 	update_post_meta( $post_id, 'team_member_google', $team_member_google );
-	update_post_meta( $post_id, 'team_member_pinterest', $team_member_pinterest );	
-
+	update_post_meta( $post_id, 'team_member_pinterest', $team_member_pinterest );
+	update_post_meta( $post_id, 'team_member_website', $team_member_website );	
+	update_post_meta( $post_id, 'team_member_email', $team_member_email );	
 	
 
 }

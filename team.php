@@ -3,7 +3,7 @@
 Plugin Name: Team
 Plugin URI: 
 Description: Fully responsive and mobile ready meet the team showcase plugin for wordpress.
-Version: 1.0
+Version: 1.1
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -62,7 +62,7 @@ register_activation_hook(__FILE__, 'team_activation');
 
 function team_activation()
 	{
-		$team_version= "1.0";
+		$team_version= "1.1";
 		update_option('team_version', $team_version); //update plugin version.
 		
 		$team_customer_type= "free"; //customer_type "free"
@@ -124,7 +124,7 @@ function team_menu_settings(){
 
 function team_menu_init()
 	{
-		add_submenu_page('edit.php?post_type=team', __('Settings','menu-wpt'), __('Settings','menu-wpt'), 'manage_options', 'team_menu_settings', 'team_menu_settings');	
+		//add_submenu_page('edit.php?post_type=team', __('Settings','menu-wpt'), __('Settings','menu-wpt'), 'manage_options', 'team_menu_settings', 'team_menu_settings');	
 			
 		add_submenu_page('edit.php?post_type=team', __('Help & Upgrade','menu-wpt'), __('Help & Upgrade','menu-wpt'), 'manage_options', 'team_menu_help', 'team_menu_help');
 

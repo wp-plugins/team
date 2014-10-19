@@ -4,7 +4,7 @@
 	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
 	Tested up to: 4.0
-	Stable tag: 1.0
+	Stable tag: 1.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,7 @@ Display team member profiles with descriptions and links to social media using o
 
 ### Team by http://paratheme.com
 
+* [Upgrade to Premium!&raquo;](http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/)
 
 
 
@@ -55,14 +56,11 @@ After activate plugin you will see "Team" menu at left side on WordPress dashboa
 
 <br />
 <strong>How to use on page or post</strong><br />
+When Timeline Ultimate options setup done please publish Timeline Ultimate as like post or page<br />
 
-After creating "Team Member" some post please see the menu on left "Team" click "New Team" fill the options "Team Options" and publish "Team" 
+and then copy shortcode from top of <strong>Timeline Ultimate Options</strong> `[team  id="1234" ]`<br />
 
-<br />
-
-and then copy shortcode from top of <strong>Team Options</strong> `[team  id="1234" ]`<br />
-
-then paste shortcode anywhere in your page to display team<br />
+then paste this shortcode anywhere in your page to display slider<br />
 
 
 
@@ -80,6 +78,12 @@ then paste shortcode anywhere in your page to display team<br />
 
 == Changelog ==
 
+	
+		
+	= 1.1 =
+    * 01/10/2014 added email link to profile.
+    * 01/10/2014 added website link to profile.
+    * 01/10/2014 Fix problem to display member position.	
 	
 	= 1.0 =
     * 06/09/2014 Initial release.

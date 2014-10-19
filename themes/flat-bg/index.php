@@ -206,7 +206,7 @@ function team_body_flat_bg($post_id)
 		if(!empty($team_thumb_url))
 			{
 					$team_body.= '
-		<div style="max-height:'.$team_items_thumb_max_hieght.';" class="team-thumb">
+		<div style="height:'.$team_items_thumb_max_hieght.';" class="team-thumb">
 			<img src="'.$team_thumb_url.'" />
 
 		</div>';
@@ -217,14 +217,15 @@ function team_body_flat_bg($post_id)
 	$team_member_fb = get_post_meta(get_the_ID(), 'team_member_fb', true );
 	$team_member_twitter = get_post_meta( get_the_ID(), 'team_member_twitter', true );
 	$team_member_google = get_post_meta( get_the_ID(), 'team_member_google', true );
-	$team_member_pinterest = get_post_meta( get_the_ID(), 'team_member_pinterest', true );	
-
+	$team_member_pinterest = get_post_meta( get_the_ID(), 'team_member_pinterest', true );
+	$team_member_website = get_post_meta( get_the_ID(), 'team_member_website', true );	
+	$team_member_email = get_post_meta( get_the_ID(), 'team_member_email', true );
 
 	
 		$team_body.= '
 			<div class="team-title" style="color:'.$team_items_title_color.';font-size:'.$team_items_title_font_size.'">'.get_the_title().'
 			</div>';
-			if(!empty($team_member_fb))
+			if(!empty($team_member_position))
 				{
 					$team_body.= '<div class="team-position" style="color:'.$team_items_position_color.';font-size:'.$team_items_position_font_size.'">'.$team_member_position.'
 					</div>';
@@ -260,6 +261,24 @@ function team_body_flat_bg($post_id)
 						<a target="_blank" href="'.$team_member_pinterest .'"></a>
 					</span>';
 				}
+				
+			if(!empty($team_member_website))
+				{
+					$team_body.= '<span class="website">
+						<a target="_blank" href="'.$team_member_website .'"></a>
+					</span>';
+				}				
+				
+				
+				
+			if(!empty($team_member_email))
+				{
+					$team_body.= '<span class="email">
+						<a target="_blank" href="mailto:'.$team_member_email .'"></a>
+					</span>';
+				}				
+				
+				
 			$team_body.= '</div>';
 			
 			
