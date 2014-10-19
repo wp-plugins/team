@@ -1,7 +1,7 @@
 === Team ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
-	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team
+	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team, meet my team
 	Requires at least: 3.8
 	Tested up to: 4.0
 	Stable tag: 1.1
@@ -48,19 +48,20 @@ Display team member profiles with descriptions and links to social media using o
 1. Install as regular WordPress plugin.<br />
 2. Go your plugin setting via WordPress Dashboard and find "<strong>Team</strong>" activate it.<br />
 
+After activate plugin you will see "Team" menu at left side on WordPress dashboard.<br />
 
 First create some team member from "Team Member" you can assign categories(Team Group) for members.
 
-
-After activate plugin you will see "Team" menu at left side on WordPress dashboard click "New Team" and use the options field "Team"<br />
+After creating some team members you need to generate shortcode to display team grid on page.
+see the menu on left "Team" click "New Team" and choose option as you need, and click "Team Content" nav to select team members by various type query as you need.
 
 <br />
 <strong>How to use on page or post</strong><br />
-When Timeline Ultimate options setup done please publish Timeline Ultimate as like post or page<br />
+When Team options setup done please publish "Team" as like post or page<br />
 
-and then copy shortcode from top of <strong>Timeline Ultimate Options</strong> `[team  id="1234" ]`<br />
+and then copy shortcode from top of <strong>Team Options</strong> `[team  id="1234" ]`<br />
 
-then paste this shortcode anywhere in your page to display slider<br />
+then paste this shortcode anywhere in your page to display Team gird.<br />
 
 
 
@@ -81,9 +82,11 @@ then paste this shortcode anywhere in your page to display slider<br />
 	
 		
 	= 1.1 =
+	
     * 01/10/2014 added email link to profile.
     * 01/10/2014 added website link to profile.
     * 01/10/2014 Fix problem to display member position.	
 	
 	= 1.0 =
+	
     * 06/09/2014 Initial release.
