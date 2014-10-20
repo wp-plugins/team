@@ -65,7 +65,7 @@ function team_activation()
 		$team_version= "1.1";
 		update_option('team_version', $team_version); //update plugin version.
 		
-		$team_customer_type= "free"; //customer_type "free"
+		$team_customer_type= "pro"; //customer_type "free"
 		update_option('team_customer_type', $team_customer_type); //update plugin version.
 	}
 

@@ -392,8 +392,8 @@ function meta_boxes_team_input( $post ) {
 				echo '<script>
 					jQuery(document).ready(function()
 						{
-							jQuery("#team_items_max_width, #team_item_text_align, #team_items_position_color, #team_items_content_color").attr("title","Only For Premium Version")
-							jQuery("#team_items_max_width, #team_item_text_align, #team_items_position_color, #team_items_content_color").attr("disabled","disabled")
+							jQuery("#team_items_max_width, #team_item_text_align, #team_items_position_color, #team_items_position_font_size, #team_items_content_color, #team_content_source_taxonomy, #team_content_source_post_id").attr("title","Only For Premium Version")
+							jQuery("#team_items_max_width, #team_item_text_align, #team_items_position_color, #team_items_position_font_size, #team_items_content_color, #team_content_source_taxonomy, #team_content_source_post_id").attr("disabled","disabled")
 						
 						})
 	 				</script>';

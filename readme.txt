@@ -19,7 +19,7 @@ Display team member profiles with descriptions and links to social media using o
 ### Team by http://paratheme.com
 
 * [Upgrade to Premium!&raquo;](http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/)
-
+* [Watch Video Tutorial!&raquo;](https://www.youtube.com/watch?v=8OiNCDavSQg)
 
 
 <strong>Plugin Features</strong><br />

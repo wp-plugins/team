@@ -7,7 +7,10 @@
         
 <h3>Have any issue ?</h3>
 
-<p>Feel free to Contact with any issue for this plugin <a href="<?php echo team_conatct_url; ?>"><?php echo team_conatct_url; ?></a>
+<p>Feel free to Contact with any issue for this plugin, Ask any question via forum <a href="http://paratheme.com/qa/">http://paratheme.com/qa/</a> <strong style="color:#139b50;">(free)</strong>
+
+
+
 </p>
 
 <?php
@@ -48,23 +51,25 @@ if($team_customer_type=="free")
 
 <ul class="team-pro-features">
 
-	<li>Life time automatic update.</li>
-	<li>Life time support via forum.</li>
-	<li>7 Days refund.</li>
+	<li style="color:#139b50;">Life time free update.</li>
+	<li style="color:#139b50;">Life time support via forum.</li>
+	<li style="color:#139b50;">7 Days refund.</li>
 	<li>Unlimited team's anywhere.</li> 
 	<li>Two Different themes.</li>       
 	<li>Fully responsive and mobile ready.</li>
-	<li>Custom number of post query.</li>       
+	<li>Custom number of post query.</li>
+    <li>Query member by categories. <strong style="color:#139b50;">(Premium Only)</strong></li>
+    <li>Query member by id. <strong style="color:#139b50;">(Premium Only)</strong></li>
 	<li>Team post thumbnail images size selection.</li>
-	<li>Team grid thumbnail custom width.</li>
+	<li>Team grid thumbnail custom width. <strong style="color:#139b50;">(Premium Only)</strong></li>
 	<li>Team grid thumbnail custom height.</li>  
-	<li>Team grid items text align.</li>       
+	<li>Team grid items text align. <strong style="color:#139b50;">(Premium Only)</strong></li>       
     <li>Background image for team area.</li>
 	<li>Team member name font color.</li>   
 	<li>Team member name font size.</li>  
-	<li>Team member position font color.</li>   
-	<li>Team member position font size.</li> 
-	<li>Team member bio font  color.</li> 
+	<li>Team member position font color. <strong style="color:#139b50;">(Premium Only)</strong></li>   
+	<li>Team member position font size. <strong style="color:#139b50;">(Premium Only)</strong></li> 
+	<li>Team member bio font  color. <strong style="color:#139b50;">(Premium Only)</strong></li> 
 	<li>Team member bio font size.</li>
     
 
