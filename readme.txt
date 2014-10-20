@@ -1,7 +1,7 @@
 === Team ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
-	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team, meet my team
+	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
 	Tested up to: 4.0
 	Stable tag: 1.1
@@ -41,6 +41,11 @@ Display team member profiles with descriptions and links to social media using o
 * Team member position font size.
 * Team member bio font color.
 * Team member bio font size.
+
+<strong>Video Tutorial Here.</strong>
+https://www.youtube.com/watch?v=8OiNCDavSQg
+
+
 
 
 == Installation ==
