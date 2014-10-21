@@ -10,6 +10,8 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+if ( ! defined('ABSPATH')) exit;
+
 define('team_plugin_url', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 define('team_plugin_dir', plugin_dir_path( __FILE__ ) );
 define('team_wp_url', 'http://wordpress.org/plugins/team/' );
