@@ -2,7 +2,9 @@
 /* CSS Document */
 
 
-.team-flat{}
+.team-flat{
+  padding: 0;
+}
 
 .team-flat .team-item {
   display: inline-block;
