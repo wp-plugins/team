@@ -1,10 +1,10 @@
 === Team ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
-	Tags: members profiles, our teams, team, team members, team plugin wordpress, meet the team
+	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
 	Tested up to: 4.0
-	Stable tag: 1.1
+	Stable tag: 1.2
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,9 +28,8 @@ Display team member profiles with descriptions and links to social media using o
 * Query Team meamber from latest, Older Published, by Only Year, by Month of a year, Categories, post id.
 * Unlimited team's anywhere.
 * Two Different themes.
-* Fully responsive and mobile ready.
-* Custom number of post query.
-* Team post thumbnail images size selection.
+* Custom number of member query.
+* Team member thumbnail images size selection.
 * Team grid thumbnail custom width.
 * Team grid thumbnail custom height.
 * Team grid items text align.
@@ -84,6 +83,13 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 
 == Changelog ==
 
+
+	= 1.2 =
+	
+    * 28/10/2014 added input field for grid items align.
+    * 28/10/2014 added input field for member bio height.
+    * 30/10/2014 Responsive admin settings.
+    * 25/10/2014 added input field for margin to grid items.
 	
 		
 	= 1.1 =

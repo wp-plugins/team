@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined('ABSPATH')) exit; // if direct access 
+
 function team_body_flat($post_id)
 	{
 		
@@ -7,6 +9,7 @@ function team_body_flat($post_id)
 		
 		$team_bg_img = get_post_meta( $post_id, 'team_bg_img', true );
 		$team_themes = get_post_meta( $post_id, 'team_themes', true );
+		$team_grid_item_align = get_post_meta( $post_id, 'team_grid_item_align', true );		
 		$team_item_text_align = get_post_meta( $post_id, 'team_item_text_align', true );
 				
 		$team_total_items = get_post_meta( $post_id, 'team_total_items', true );		
@@ -23,7 +26,7 @@ function team_body_flat($post_id)
 		$team_posttype = 'team_member';
 		
 		
-		$team_post_ids = get_post_meta( $post_id, 'team_post_ids', true );
+		$team_post_ids = get_post_meta( $post->ID, 'team_post_ids', true );
 
 
 
@@ -33,26 +36,25 @@ function team_body_flat($post_id)
 		$team_items_title_color = get_post_meta( $post_id, 'team_items_title_color', true );			
 		$team_items_title_font_size = get_post_meta( $post_id, 'team_items_title_font_size', true );		
 
-		$team_items_position_color = get_post_meta( $post_id, 'team_items_position_color', true );
-		$team_items_position_font_size = get_post_meta( $post_id, 'team_items_position_font_size', true );
-
 		$team_items_content_color = get_post_meta( $post_id, 'team_items_content_color', true );
 		$team_items_content_font_size = get_post_meta( $post_id, 'team_items_content_font_size', true );
-
+		$team_items_content_height = get_post_meta( $post_id, 'team_items_content_height', true );
 		
 		$team_items_thumb_size = get_post_meta( $post_id, 'team_items_thumb_size', true );
 		$team_items_max_width = get_post_meta( $post_id, 'team_items_max_width', true );		
 		$team_items_thumb_max_hieght = get_post_meta( $post_id, 'team_items_thumb_max_hieght', true );
 		
-		
+		$team_items_margin = get_post_meta( $post_id, 'team_items_margin', true );
+				
 		$team_body = '';
 		$team_body = '<style type="text/css"></style>';
 		
 		
 		
 		$team_body .= '
-		<div  class="team-container" style="background-image:url('.$team_bg_img.')">
-		<ul  id="team-'.$post_id.'" class="team-items team-'.$team_themes.'">';
+		<div  class="team-container" style="background-image:url('.$team_bg_img.');text-align:'.$team_grid_item_align.';">
+		<div style="background:'.$team_middle_line_bg.'" class="middle-line"></div>
+		<ul  id="team-'.$post_id.'" class="team-items team-flat">';
 		
 		global $wp_query;
 		
@@ -87,24 +89,6 @@ function team_body_flat($post_id)
 						) );
 
 			}		
-
-		elseif(($team_content_source=="featured"))
-			{
-			
-				$wp_query = new WP_Query(
-					array (
-						'post_type' => $team_posttype,
-						'meta_query' => array(
-							array(
-								'key' => '_featured',
-								'value' => 'yes',
-								)),
-						'posts_per_page' => $team_total_items,
-						
-						) );
-
-			}	
-
 
 		elseif(($team_content_source=="year"))
 			{
@@ -179,7 +163,7 @@ function team_body_flat($post_id)
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
 		
 		$team_featured = get_post_meta( get_the_ID(), '_featured', true );
-		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $team_items_thumb_size );
+		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $team_items_thumb_size );
 		$team_thumb_url = $team_thumb['0'];
 		
 		
@@ -196,7 +180,7 @@ function team_body_flat($post_id)
 			
 			
 		
-		$team_body.= '<li style="width:'.$team_items_max_width.'; text-align:'.$team_item_text_align.';" class="team-item '.$even_odd.'" >';
+		$team_body.= '<li style="width:'.$team_items_max_width.';text-align:'.$team_item_text_align.';margin:20px '.$team_items_margin.'" class="team-item '.$even_odd.'" >';
 		$team_body.= '<div class="team-post">';		
 		
 			
@@ -210,23 +194,24 @@ function team_body_flat($post_id)
 					$team_body.= '
 		<div style="height:'.$team_items_thumb_max_hieght.';" class="team-thumb">
 			<img src="'.$team_thumb_url.'" />
+
 		</div>';
 			}
 
 
 	$team_member_position = get_post_meta(get_the_ID(), 'team_member_position', true );
-	$team_member_fb = get_post_meta(get_the_ID(), 'team_member_fb', true );
-	$team_member_twitter = get_post_meta( get_the_ID(), 'team_member_twitter', true );
-	$team_member_google = get_post_meta( get_the_ID(), 'team_member_google', true );
-	$team_member_pinterest = get_post_meta( get_the_ID(), 'team_member_pinterest', true );
-	$team_member_email = get_post_meta( get_the_ID(), 'team_member_email', true );	
+	$team_member_website = get_post_meta( get_the_ID(), 'team_member_website', true );	
+	$team_member_email = get_post_meta( get_the_ID(), 'team_member_email', true );
+	$team_member_skype = get_post_meta( get_the_ID(), 'team_member_skype', true );	
+	$team_member_social_links = get_post_meta( get_the_ID(), 'team_member_social_links', true );	
+	
+
 
 
 	
 		$team_body.= '
 			<div class="team-title" style="color:'.$team_items_title_color.';font-size:'.$team_items_title_font_size.'">'.get_the_title().'
 			</div>';
-			
 			if(!empty($team_member_position))
 				{
 					$team_body.= '<div class="team-position" style="color:'.$team_items_position_color.';font-size:'.$team_items_position_font_size.'">'.$team_member_position.'
@@ -236,38 +221,50 @@ function team_body_flat($post_id)
 			
 			$team_body.= '<div class="team-social" >';
 			
-			if(!empty($team_member_fb))
+			
+			$team_member_social_field = get_option( 'team_member_social_field' );
+			
+			if(empty($team_member_social_field))
 				{
-					$team_body.= '<span class="fb">
-						<a target="_blank" href="'.$team_member_fb.'"> </a>
-					</span>';
+					$team_member_social_field = array("facebook"=>"facebook","twitter"=>"twitter","googleplus"=>"googleplus","pinterest"=>"pinterest");
+					
 				}
+			
+			
+            foreach ($team_member_social_field as $value) {
+                if(!empty($value) && !empty($team_member_social_links[$value]))
+                    {
+	
+					$team_body.= '<span class="'.$value.'">
+						<a target="_blank" href="'.$team_member_social_links[$value].'"> </a>
+					</span>';
+                    
+                    }
+            }
+			
+			
 
-			if(!empty($team_member_twitter))
-				{
-					$team_body.= '<span class="twitter">
-						<a target="_blank" href="'.$team_member_twitter.'"></a>
-					</span>';
-				}
+
 				
-			if(!empty($team_member_google))
+			if(!empty($team_member_website))
 				{
-					$team_body.= '<span class="gplus">
-						<a target="_blank" href="'.$team_member_google .'"></a>
+					$team_body.= '<span class="website">
+						<a target="_blank" href="'.$team_member_website .'"></a>
 					</span>';
-				}
-				
-			if(!empty($team_member_pinterest))
-				{
-					$team_body.= '<span class="pinterest">
-						<a target="_blank" href="'.$team_member_pinterest .'"></a>
-					</span>';
-				}
+				}				
+
 				
 			if(!empty($team_member_email))
 				{
 					$team_body.= '<span class="email">
-						<a target="_blank" href="mailto:'.$team_member_email.'"></a>
+						<a target="_blank" href="mailto:'.$team_member_email .'"></a>
+					</span>';
+				}
+				
+			if(!empty($team_member_skype))
+				{
+					$team_body.= '<span class="skype">
+						<a title="'.$team_member_skype.'" target="_blank" href="skype:'.$team_member_skype.'"></a>
 					</span>';
 				}				
 				
@@ -275,7 +272,7 @@ function team_body_flat($post_id)
 			
 			
 			
-			$team_body.= '<div class="team-content" style="color:'.$team_items_content_color.';font-size:'.$team_items_content_font_size.'">'.get_the_content().'
+			$team_body.= '<div class="team-content" style="color:'.$team_items_content_color.';font-size:'.$team_items_content_font_size.';height:'.$team_items_content_height.';">'.get_the_content().'
 			</div>			
 			
 			</div>
@@ -294,7 +291,12 @@ function team_body_flat($post_id)
 			
 		$team_body .= '</ul></div>';
 		
+		$team_body .= '<script type="text/javascript">
+			jQuery(function($) {
+				$(".team-content").dotdotdot();
 
+			});
+		</script>';
 		
 		
 		return $team_body;

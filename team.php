@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: Team
-Plugin URI: 
+Plugin URI: http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/
 Description: Fully responsive and mobile ready meet the team showcase plugin for wordpress.
-Version: 1.1
+Version: 1.2
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if ( ! defined('ABSPATH')) exit;
+if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 define('team_plugin_url', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 define('team_plugin_dir', plugin_dir_path( __FILE__ ) );
@@ -19,7 +19,7 @@ define('team_pro_url', 'http://paratheme.com/items/team-responsive-meet-the-team
 define('team_demo_url', 'http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/' );
 define('team_conatct_url', 'http://paratheme.com/contact' );
 define('team_plugin_name', 'Team' );
-define('team_share_url', 'http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/' );
+define('team_share_url', 'http://wordpress.org/plugins/team/' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'includes/team-meta.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/team-functions.php');
@@ -35,15 +35,16 @@ require_once( plugin_dir_path( __FILE__ ) . 'themes/flat-bg/index.php');
 function team_init_scripts()
 	{
 		wp_enqueue_script('jquery');
-		wp_enqueue_script('team_js', plugins_url( '/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
-		
+		wp_enqueue_script('team_js', plugins_url( '/js/team-scripts.js' , __FILE__ ) , array( 'jquery' ));	
 		wp_localize_script('team_js', 'team_ajax', array( 'team_ajaxurl' => admin_url( 'admin-ajax.php')));
 		wp_enqueue_style('team_style', team_plugin_url.'css/style.css');
+		wp_enqueue_style('ParaAdmin', team_plugin_url.'css/ParaAdmin.css');	
+		wp_enqueue_script('ParaAdmin', plugins_url( '/js/ParaAdmin.js' , __FILE__ ) , array( 'jquery' ));	
 
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'team_color_picker', plugins_url('/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 		
-
+		wp_enqueue_script('jquery.dotdotdot', plugins_url( '/js/jquery.dotdotdot.js' , __FILE__ ) , array( 'jquery' ));
 		
 		// Style for themes
 		wp_enqueue_style('team-style-flat', team_plugin_url.'themes/flat/style.css');
@@ -64,7 +65,7 @@ register_activation_hook(__FILE__, 'team_activation');
 
 function team_activation()
 	{
-		$team_version= "1.1";
+		$team_version= "1.2";
 		update_option('team_version', $team_version); //update plugin version.
 		
 		$team_customer_type= "free"; //customer_type "free"
@@ -117,18 +118,15 @@ function team_menu_help(){
 	include('team-help.php');	
 }
 
-
 function team_menu_settings(){
 	include('team-settings.php');	
 }
 
-
-
 function team_menu_init()
 	{
-		//add_submenu_page('edit.php?post_type=team', __('Settings','menu-wpt'), __('Settings','menu-wpt'), 'manage_options', 'team_menu_settings', 'team_menu_settings');	
-			
-		add_submenu_page('edit.php?post_type=team', __('Help & Upgrade','menu-wpt'), __('Help & Upgrade','menu-wpt'), 'manage_options', 'team_menu_help', 'team_menu_help');
+		add_submenu_page('edit.php?post_type=team', __('Settings','menu-team'), __('Settings','menu-team'), 'manage_options', 'team_menu_settings', 'team_menu_settings');
+
+		add_submenu_page('edit.php?post_type=team', __('Help & Upgrade','menu-team'), __('Help & Upgrade','menu-team'), 'manage_options', 'team_menu_help', 'team_menu_help');
 
 	}
 

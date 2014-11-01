@@ -1,10 +1,7 @@
 <?php
 
 
-
-
-
-
+if ( ! defined('ABSPATH')) exit; // if direct access 
 
 add_action('init', 'team_member_register');
  
@@ -110,12 +107,12 @@ function meta_boxes_team_member_input( $post ) {
 
 
 	$team_member_position = get_post_meta( $post->ID, 'team_member_position', true );
-	$team_member_fb = get_post_meta( $post->ID, 'team_member_fb', true );
-	$team_member_twitter = get_post_meta( $post->ID, 'team_member_twitter', true );
-	$team_member_google = get_post_meta( $post->ID, 'team_member_google', true );		
-	$team_member_pinterest = get_post_meta( $post->ID, 'team_member_pinterest', true );
 	$team_member_website = get_post_meta( $post->ID, 'team_member_website', true );	
-	$team_member_email = get_post_meta( $post->ID, 'team_member_email', true );	
+	$team_member_email = get_post_meta( $post->ID, 'team_member_email', true );
+	$team_member_skype = get_post_meta( $post->ID, 'team_member_skype', true );	
+	$team_member_social_links = get_post_meta( $post->ID, 'team_member_social_links', true );	
+
+
 
 
 
@@ -124,77 +121,63 @@ function meta_boxes_team_member_input( $post ) {
 ?>
 
 
-
-
-<table class="form-table">
-
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Member Position</strong><br /><br /> 
-        <input type="text" size="30" placeholder="Team Leader"   name="team_member_position" value="<?php if(!empty($team_member_position)) echo $team_member_position; ?>" />
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Facebook Profile url</strong><br /><br /> 
-        <input type="text" size="30" placeholder="http://facebook.com/username"   name="team_member_fb" value="<?php if(!empty($team_member_fb)) echo $team_member_fb; ?>" />
-        </td>
-    </tr>
-
-
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Twitter Profile url</strong><br /><br /> 
-        <input type="text" size="30" placeholder="http://twitter.com/username"   name="team_member_twitter" value="<?php if(!empty($team_member_twitter)) echo $team_member_twitter; ?>" />
-        </td>
-    </tr>
-
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Google Plus Profile url</strong><br /><br /> 
-        <input type="text" size="30" placeholder="http://plus.google.com/username"   name="team_member_google" value="<?php if(!empty($team_member_google)) echo $team_member_google; ?>" />
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Pinterest Profile url</strong><br /><br /> 
-        <input type="text" size="30" placeholder="http://pinterest.com/username"   name="team_member_pinterest" value="<?php if(!empty($team_member_pinterest)) echo $team_member_pinterest; ?>" />
-        </td>
-    </tr>
-
-
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Member Website url</strong><br /><br /> 
+    <div class="para-settings">
+		<div class="option-box">
+			<p class="option-title">Member Position</p>
+ 			<p class="option-info"></p>
+			<input type="text" size="30" placeholder="Team Leader"   name="team_member_position" value="<?php if(!empty($team_member_position)) echo $team_member_position; ?>" />
+		</div>
+        
+        
+		<div class="option-box">
+			<p class="option-title">Member Website url</p>
+ 			<p class="option-info"></p>
         <input type="text" size="30" placeholder="http://example.com"   name="team_member_website" value="<?php if(!empty($team_member_website)) echo $team_member_website; ?>" />
-        </td>
-    </tr>
-
-
-
-
-
-	
-    <tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Member email</strong><br /><br /> 
+		</div>        
+        
+        
+		<div class="option-box">
+			<p class="option-title">Member email</p>
+ 			<p class="option-info"></p>
         <input type="text" size="30" placeholder="hello@example.com"   name="team_member_email" value="<?php if(!empty($team_member_email)) echo $team_member_email; ?>" />
-        </td>
-    </tr>	
-	
-	
-	
+		</div>            
+        
+		<div class="option-box">
+			<p class="option-title">Member Skype</p>
+ 			<p class="option-info"></p>
+        <input type="text" size="30" placeholder=""   name="team_member_skype" value="<?php if(!empty($team_member_skype)) echo $team_member_skype; ?>" />
+		</div>         
+        
+        
+        
+		<?php
+        $team_member_social_field = get_option( 'team_member_social_field' );
+		
+		if(empty($team_member_social_field))
+			{
+				$team_member_social_field = array("facebook"=>"facebook","twitter"=>"twitter","googleplus"=>"googleplus","pinterest"=>"pinterest");
+				
+			}
 
-
-
-</table>
-
-
+		foreach ($team_member_social_field as $value) {
+			if(!empty($value))
+				{
+					?>
+                    
+		<div class="option-box">
+			<p class="option-title"><?php echo ucfirst($value); ?> Profile url</p>
+ 			<p class="option-info"></p>
+        	<input type="text" size="30" placeholder="http://exapmle.com/username"   name="team_member_social_links[<?php echo $value; ?>]" value="<?php if(!empty($team_member_social_links[$value])) echo $team_member_social_links[$value]; ?>" />
+		</div> 
+                    
+			<?php
+                    
+                    }
+            }
+            
+            ?>
+ 
+	</div> <!-- para-settings -->
 
 
 
@@ -236,26 +219,22 @@ function meta_boxes_team_member_save( $post_id ) {
 
   // Sanitize user input.
   
- 	$team_member_position = sanitize_text_field( $_POST['team_member_position'] );	 
-	$team_member_fb = sanitize_text_field( $_POST['team_member_fb'] );	
-	$team_member_twitter = sanitize_text_field( $_POST['team_member_twitter'] );	
-	$team_member_google = sanitize_text_field( $_POST['team_member_google'] );
-	$team_member_pinterest = sanitize_text_field( $_POST['team_member_pinterest'] );
-	$team_member_website = sanitize_text_field( $_POST['team_member_website'] );	
-	$team_member_email = sanitize_text_field( $_POST['team_member_email'] );	
+ 	$team_member_position = sanitize_text_field( $_POST['team_member_position'] );
+ 	update_post_meta( $post_id, 'team_member_position', $team_member_position );
 	
-			
-
-
-  // Update the meta field in the database.
- 	update_post_meta( $post_id, 'team_member_position', $team_member_position );	 
-	update_post_meta( $post_id, 'team_member_fb', $team_member_fb );	
-	update_post_meta( $post_id, 'team_member_twitter', $team_member_twitter );
-	update_post_meta( $post_id, 'team_member_google', $team_member_google );
-	update_post_meta( $post_id, 'team_member_pinterest', $team_member_pinterest );
+	$team_member_website = sanitize_text_field( $_POST['team_member_website'] );
 	update_post_meta( $post_id, 'team_member_website', $team_member_website );	
-	update_post_meta( $post_id, 'team_member_email', $team_member_email );	
+		
+	$team_member_email = sanitize_text_field( $_POST['team_member_email'] );
+	update_post_meta( $post_id, 'team_member_email', $team_member_email );
 	
+	$team_member_skype = sanitize_text_field( $_POST['team_member_skype'] );
+	update_post_meta( $post_id, 'team_member_skype', $team_member_skype );	
+
+	$team_member_social_links = stripslashes_deep( $_POST['team_member_social_links'] );
+	update_post_meta( $post_id, 'team_member_social_links', $team_member_social_links );
+
+
 
 }
 add_action( 'save_post', 'meta_boxes_team_member_save' );
@@ -343,6 +322,7 @@ function meta_boxes_team_input( $post ) {
 	
 	$team_bg_img = get_post_meta( $post->ID, 'team_bg_img', true );
 	$team_themes = get_post_meta( $post->ID, 'team_themes', true );
+	$team_grid_item_align = get_post_meta( $post->ID, 'team_grid_item_align', true );	
 	$team_item_text_align = get_post_meta( $post->ID, 'team_item_text_align', true );	
 	$team_total_items = get_post_meta( $post->ID, 'team_total_items', true );	
 
@@ -367,13 +347,13 @@ function meta_boxes_team_input( $post ) {
 		
 	$team_items_content_color = get_post_meta( $post->ID, 'team_items_content_color', true );	
 	$team_items_content_font_size = get_post_meta( $post->ID, 'team_items_content_font_size', true );		
-	
+	$team_items_content_height = get_post_meta( $post->ID, 'team_items_content_height', true );	
 	
 	$team_items_thumb_size = get_post_meta( $post->ID, 'team_items_thumb_size', true );	
 	$team_items_max_width = get_post_meta( $post->ID, 'team_items_max_width', true );		
 	$team_items_thumb_max_hieght = get_post_meta( $post->ID, 'team_items_thumb_max_hieght', true );	
 	
-	
+	$team_items_margin = get_post_meta( $post->ID, 'team_items_margin', true );		
 	
 	
 	
@@ -456,33 +436,24 @@ function meta_boxes_team_input( $post ) {
     <tr valign="top">
 
         <td style="vertical-align:middle;">
-        
-        <ul class="tab-nav">
+	<div class="para-settings">
+        <ul class="tab-nav"> 
             <li nav="1" class="nav1 active">Team Options</li>
             <li nav="2" class="nav2">Team Style</li>
             <li nav="3" class="nav3">Team Content</li>
-        
-        </ul>
-
-
-        <ul class="box">
+        </ul> <!-- tab-nav end -->
+		<ul class="box">
             <li style="display: block;" class="box1 tab-box active">
-            
-            
-            <table>
-                <tr valign="top">
-                    <td style="vertical-align:middle;">
-                        <strong>Number of post to display.</strong><br /><br /> 
-                        
-                        <input type="text" placeholder="ex:5 - Number Only"   name="team_total_items" value="<?php if(!empty($team_total_items))echo $team_total_items; else echo 5; ?>" />
-                
-                    </td>
-                </tr>
+				<div class="option-box">
+                    <p class="option-title">Number of members to display.</p>
+                    <p class="option-info">Total number of member on grid.</p>
+                    <input type="text" placeholder="ex:5 - Number Only"   name="team_total_items" value="<?php if(!empty($team_total_items))echo $team_total_items; else echo 5; ?>" />
+                </div>
                 
                 
-                <tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Thumbnail Size</strong><br /><br /> 
+				<div class="option-box">
+                    <p class="option-title">Thumbnail Size.</p>
+                    <p class="option-info">Thumbnail size of member on grid.</p>
                     <select name="team_items_thumb_size" >
                     <option value="none" <?php if($team_items_thumb_size=="none")echo "selected"; ?>>None</option>
                     <option value="thumbnail" <?php if($team_items_thumb_size=="thumbnail")echo "selected"; ?>>Thumbnail</option>
@@ -491,59 +462,57 @@ function meta_boxes_team_input( $post ) {
                     <option value="full" <?php if($team_items_thumb_size=="full")echo "selected"; ?>>Full</option>   
 
                     </select>
-                    </td>
-				</tr>
+                </div>                
                 
 
-                <tr valign="top">
-                    <td style="vertical-align:middle;">
-                    <strong>Item max Width(px)</strong><br /><br />
-                    <input type="text" name="team_items_max_width" placeholder="ex:150px number with px" id="team_items_max_width" value="<?php if(!empty($team_items_max_width)) echo $team_items_max_width; else echo ""; ?>" />
-                    </td>
-                </tr>
+
+				<div class="option-box">
+                    <p class="option-title">Grid item max Width(px)</p>
+                    <p class="option-info">Maximum width for grid items.</p>
+					<input type="text" name="team_items_max_width" placeholder="ex:150px number with px" id="team_items_max_width" value="<?php if(!empty($team_items_max_width)) echo $team_items_max_width; else echo ""; ?>" />
+                </div> 
 
 
+				<div class="option-box">
+                    <p class="option-title">Grid item max Height(px)</p>
+                    <p class="option-info">Maximum Height for grid items.</p>
+					<input type="text" name="team_items_thumb_max_hieght" placeholder="ex:150px number with px" id="team_items_thumb_max_hieght" value="<?php if(!empty($team_items_thumb_max_hieght)) echo $team_items_thumb_max_hieght; else echo ""; ?>" />
+				</div>
 
-                <tr valign="top">
-                    <td style="vertical-align:middle;">
-                    <strong>Thumbnail max hieght(px)</strong><br /><br />
-                    <input type="text" name="team_items_thumb_max_hieght" placeholder="ex:150px number with px" id="team_items_thumb_max_hieght" value="<?php if(!empty($team_items_thumb_max_hieght)) echo $team_items_thumb_max_hieght; else echo ""; ?>" />
-                    </td>
-                </tr>
-                
-                
-                
+				<div class="option-box">
+                    <p class="option-title">Grid Items Margin (px).</p>
+                    <p class="option-info">Margin for grid items.</p>
+					<input type="text" name="team_items_margin" placeholder="ex:20px number with px" id="team_items_margin" value="<?php if(!empty($team_items_margin)) echo $team_items_margin; else echo ""; ?>" />
+				</div>
 
-                
-                
-            </table>
-            
-            
-            
-            
             
             </li>
-            <li class="box2 tab-box">
-            
-            <table>
-            
-            
-                <tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Themes</strong><br /><br /> 
+			<li style="display: none;" class="box2 tab-box">
+				<div class="option-box">
+                    <p class="option-title">Themes.</p>
+                    <p class="option-info">Themes for Team grid.</p>
                     <select name="team_themes"  >
                     <option class="team_themes_flat" value="flat" <?php if($team_themes=="flat")echo "selected"; ?>>Flat</option>
                     <option class="team_themes_flat-bg" value="flat-bg" <?php if($team_themes=="flat-bg")echo "selected"; ?>>Flat Background</option>                    
                     </select>
-                    </td>
-				</tr>
-
-
-                
-
-                <tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Item Text Align</strong><br /><br /> 
+				</div>
+            
+				<div class="option-box">
+                    <p class="option-title">Grid Item Align.</p>
+                    <p class="option-info"></p>
+                    <select id="team_grid_item_align" name="team_grid_item_align"  >
+                    <option class="team_grid_item_align" value="left" <?php if($team_grid_item_align=="left")echo "selected"; ?>>Left</option>
+                    
+                    <option class="team_grid_item_align" value="center" <?php if($team_grid_item_align=="center")echo "selected"; ?>>Center</option>
+                    
+                    <option class="team_grid_item_align" value="right" <?php if($team_grid_item_align=="right")echo "selected"; ?>>Right</option>                    
+                    </select>
+				</div>
+            
+            
+				<div class="option-box">
+                    <p class="option-title">Grid Items Text Align.</p>
+                    <p class="option-info"></p>
                     <select id="team_item_text_align" name="team_item_text_align"  >
                     <option class="team_item_text_align" value="left" <?php if($team_item_text_align=="left")echo "selected"; ?>>Left</option>
                     
@@ -551,14 +520,12 @@ function meta_boxes_team_input( $post ) {
                     
                     <option class="team_item_text_align" value="right" <?php if($team_item_text_align=="right")echo "selected"; ?>>Right</option>                    
                     </select>
-                    </td>
-				</tr>
-				
-
-                
-                
-                
-                
+				</div>    
+            
+            
+				<div class="option-box">
+                    <p class="option-title">Background Image.</p>
+                    <p class="option-info">Background image for team area.</p>
                                            
             <script>
             jQuery(document).ready(function(jQuery)
@@ -578,17 +545,6 @@ function meta_boxes_team_input( $post ) {
                 })
             
             </script> 
-                            
-                            
-                            
-                            
-                            
-                            
-            <tr valign="top">
-            
-                    <td style="vertical-align:middle;">
-                    
-                    <strong>Background Image</strong><br /><br /> 
                     
             
             <?php
@@ -642,113 +598,73 @@ function meta_boxes_team_input( $post ) {
             
             
             ?>
-                    </td>
-                </tr>
-                      
-
-				
+				</div>             
 
 
-         
-				
-                
-
-                
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Post Title (Member Name) Color</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Member Name Font Color.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_title_color" id="team_items_title_color" value="<?php if(!empty($team_items_title_color)) echo $team_items_title_color; else echo ""; ?>" />
-                    </td>
-				</tr>                
-                
-                
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Post Title(Member Name) Font Size</strong><br /><br />
+				</div>
+
+				<div class="option-box">
+                    <p class="option-title">Member Name Font Size.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_title_font_size" placeholder="ex:14px number with px" id="team_items_title_font_size" value="<?php if(!empty($team_items_title_font_size)) echo $team_items_title_font_size; else echo "14px"; ?>" />
-                    </td>
-				</tr>                   
+				</div>
 
 
-
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Member Position Font Color</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Member Position Font Color.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_position_color" placeholder="#ffffff" id="team_items_position_color" value="<?php if(!empty($team_items_position_color)) echo $team_items_position_color; else echo ""; ?>" />
-                    </td>
-				</tr> 
+				</div>
 
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Member Position Font Size</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Member Position Font Size.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_position_font_size" placeholder="ex:12px number with px" id="team_items_position_font_size" value="<?php if(!empty($team_items_position_font_size)) echo $team_items_position_font_size; else echo ""; ?>" />
-                    </td>
-				</tr>  
+				</div>
 
 
-
-
-
-
-
-
-
-<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Post Content (Member Bio) Color</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Member Bio Font Color.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_content_color" id="team_items_content_color" value="<?php if(!empty($team_items_content_color)) echo $team_items_content_color; else echo ""; ?>" />
-                    </td>
-				</tr>
+				</div>
 
 
-
-<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Post Content (Member Bio) font size</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Member Bio Font Size.</p>
+                    <p class="option-info"></p>
                     <input type="text" name="team_items_content_font_size" id="team_items_content_font_size" value="<?php if(!empty($team_items_content_font_size)) echo $team_items_content_font_size; else echo "13px"; ?>" />
-                    </td>
-				</tr>
+				</div>
 
 
+				<div class="option-box">
+                    <p class="option-title">Member Bio Max Height.</p>
+                    <p class="option-info"></p>
+                    <input type="text" name="team_items_content_height" id="team_items_content_height" value="<?php if(!empty($team_items_content_height)) echo $team_items_content_height; else echo "100px"; ?>" />
+				</div>
 
 
-
-
-
-
- 
-		</table>
-
-
+            
             </li>
+			<li style="display: none;" class="box3 tab-box">
             
-            
-            <li class="box3 tab-box">
-            
-
-            <table>
-            
-
-                
-
-                <tr valign="top">
-                    <td style="vertical-align:middle;">
-                        <strong>Filter Content</strong><br /><br /> 
+				<div class="option-box">
+                    <p class="option-title">Filter Member.</p>
+                    <p class="option-info"></p>
 <ul class="content_source_area" >
 
-            <li><input class="team_content_source" name="team_content_source" id="team_content_source_latest" type="radio" value="latest" <?php if($team_content_source=="latest")  echo "checked";?> /> <label for="team_content_source_latest">Display from Latest Published Post(Member)</label>
+            <li><input class="team_content_source" name="team_content_source" id="team_content_source_latest" type="radio" value="latest" <?php if($team_content_source=="latest")  echo "checked";?> /> <label for="team_content_source_latest">Display from Latest Published Member.</label>
             <div class="team_content_source_latest content-source-box">Team items will query from latest published Members.</div>
             </li>
             
-            <li><input class="team_content_source" name="team_content_source" id="team_content_source_older" type="radio" value="older" <?php if($team_content_source=="older")  echo "checked";?> /> <label for="team_content_source_older">Display from Older Published Post(Member)</label>
+            <li><input class="team_content_source" name="team_content_source" id="team_content_source_older" type="radio" value="older" <?php if($team_content_source=="older")  echo "checked";?> /> <label for="team_content_source_older">Display from Older Published Member.</label>
             <div class="team_content_source_older content-source-box">Team items will query from older published Members.</div>
             </li>            
-            
-            <li><input class="team_content_source" name="team_content_source" id="team_content_source_featured" type="radio" value="featured" <?php if($team_content_source=="featured")  echo "checked";?> /> <label for="team_content_source_featured">Display from Featured Post(Member)</label>
-            
-            <div class="team_content_source_featured content-source-box">Team items will query from featured marked Members.</div>
-            </li>
-            
+
             <li><input class="team_content_source" name="team_content_source" id="team_content_source_year" type="radio" value="year" <?php if($team_content_source=="year")  echo "checked";?> /> <label for="team_content_source_year">Display from Only Year</label>
             
             <div class="team_content_source_year content-source-box">Member items will query from a year.
@@ -765,7 +681,7 @@ function meta_boxes_team_input( $post ) {
             </div>
             </li>            
 
-            <li><input class="team_content_source" name="team_content_source" id="team_content_source_taxonomy" type="radio" value="taxonomy" <?php if($team_content_source=="taxonomy")  echo "checked";?> /> <label for="team_content_source_taxonomy">Display from Post(Member) Categories</label>
+            <li><input class="team_content_source" name="team_content_source" id="team_content_source_taxonomy" type="radio" value="taxonomy" <?php if($team_content_source=="taxonomy")  echo "checked";?> /> <label for="team_content_source_taxonomy">Display from Member Categories</label>
             
             <div class="team_content_source_taxonomy content-source-box" >
 				<?php
@@ -776,7 +692,7 @@ function meta_boxes_team_input( $post ) {
             
             </div>
             </li>           
-            <li><input class="team_content_source" name="team_content_source" id="team_content_source_post_id" type="radio" value="post_id" <?php if($team_content_source=="post_id")  echo "checked";?> /> <label for="team_content_source_post_id">Display by Post(Member) id</label>
+            <li><input class="team_content_source" name="team_content_source" id="team_content_source_post_id" type="radio" value="post_id" <?php if($team_content_source=="post_id")  echo "checked";?> /> <label for="team_content_source_post_id">Display by Member id</label>
             
             <div  class="team_content_source_post_id content-source-box" >
 				<?php
@@ -787,25 +703,21 @@ function meta_boxes_team_input( $post ) {
             
             </div>
             </li>
-            </ul>
-                
-                    </td>
-                </tr>
-               </table>
+            </ul>				</div>
             
-
-
+            
+            
+            
+            
+            
+            
             </li>
             
             
-            
-            
-            
-            
-            
-        </ul>
+		</ul><!-- box end -->
         
-        
+    </div> <!-- para-settings end -->
+
         
         </td>
     </tr> 
@@ -866,6 +778,7 @@ function meta_boxes_team_save( $post_id ) {
   // Sanitize user input.
 	$team_bg_img = sanitize_text_field( $_POST['team_bg_img'] );	
 	$team_themes = sanitize_text_field( $_POST['team_themes'] );
+	$team_grid_item_align = sanitize_text_field( $_POST['team_grid_item_align'] );	
 	$team_item_text_align = sanitize_text_field( $_POST['team_item_text_align'] );	
 	$team_total_items = sanitize_text_field( $_POST['team_total_items'] );		
 
@@ -897,12 +810,13 @@ function meta_boxes_team_save( $post_id ) {
 
 	$team_items_content_color = sanitize_text_field( $_POST['team_items_content_color'] );	
 	$team_items_content_font_size = sanitize_text_field( $_POST['team_items_content_font_size'] );	
+	$team_items_content_height = sanitize_text_field( $_POST['team_items_content_height'] );	
 
 	$team_items_thumb_size = sanitize_text_field( $_POST['team_items_thumb_size'] );
 	$team_items_max_width = sanitize_text_field( $_POST['team_items_max_width'] );	
 	$team_items_thumb_max_hieght = sanitize_text_field( $_POST['team_items_thumb_max_hieght'] );	
 	
-	
+	$team_items_margin = sanitize_text_field( $_POST['team_items_margin'] );	
 	
 			
 
@@ -910,6 +824,7 @@ function meta_boxes_team_save( $post_id ) {
   // Update the meta field in the database.
 	update_post_meta( $post_id, 'team_bg_img', $team_bg_img );	
 	update_post_meta( $post_id, 'team_themes', $team_themes );
+	update_post_meta( $post_id, 'team_grid_item_align', $team_grid_item_align );	
 	update_post_meta( $post_id, 'team_item_text_align', $team_item_text_align );	
 	update_post_meta( $post_id, 'team_total_items', $team_total_items );	
 
@@ -933,13 +848,13 @@ function meta_boxes_team_save( $post_id ) {
 
 	update_post_meta( $post_id, 'team_items_content_color', $team_items_content_color );
 	update_post_meta( $post_id, 'team_items_content_font_size', $team_items_content_font_size );
-
+	update_post_meta( $post_id, 'team_items_content_height', $team_items_content_height );
 
 	update_post_meta( $post_id, 'team_items_thumb_size', $team_items_thumb_size );
 	update_post_meta( $post_id, 'team_items_max_width', $team_items_max_width );	
 	update_post_meta( $post_id, 'team_items_thumb_max_hieght', $team_items_thumb_max_hieght );
 	
-
+	update_post_meta( $post_id, 'team_items_margin', $team_items_margin );
 	
 
 }

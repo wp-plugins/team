@@ -1,30 +1,26 @@
 <?php	
 
-	if(empty($_POST['team_hidden']))
-		{
-			$team_ribbons = get_option( 'team_ribbons' );
-			
-			
-		}
-	else
-		{
-					
-				
+
+if ( ! defined('ABSPATH')) exit; // if direct access 
+
+
+
+if(empty($_POST['team_hidden']))
+	{
+		$team_member_social_field = get_option( 'team_member_social_field' );
+	}
+else
+	{	
 		if($_POST['team_hidden'] == 'Y') {
 			//Form data sent
-
-			$team_ribbons = stripslashes_deep($_POST['team_ribbons']);
-			update_option('team_ribbons', $team_ribbons);
-			
-		
-			
-					
-
+			$team_member_social_field = stripslashes_deep($_POST['team_member_social_field']);
+			update_option('team_member_social_field', $team_member_social_field);
+	
 			?>
 			<div class="updated"><p><strong><?php _e('Changes Saved.' ); ?></strong></p></div>
-
+	
 			<?php
-		} 
+			} 
 	}
 ?>
 
@@ -34,43 +30,52 @@
 
 <div class="wrap">
 
-	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__('team Settings')."</h2>";?>
+	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__(team_plugin_name.' Settings')."</h2>";?>
 		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 	<input type="hidden" name="team_hidden" value="Y">
         <?php settings_fields( 'team_plugin_options' );
 				do_settings_sections( 'team_plugin_options' );
 			
 		?>
-        
-        
-    
-        
-<table class="form-table">
 
+    <div class="para-settings">
+		<div class="option-box">
+			<p class="option-title">Display input field on user profile.</p>
+ 			<p class="option-info">By adding bellow input you can control extra input field under member page. if you want to remove one profile field then please empty this field and save changes or to add new profile field simply click add new. some default profile fields are facebook, twitter, googleplus, pinterest.</p>
+			<table class="team_member_social_field">
+                    
+              
+            <?php 
 
+            if(empty($team_member_social_field))
+                {
+                    $team_member_social_field = array("facebook"=>"facebook","twitter"=>"twitter","googleplus"=>"googleplus","pinterest"=>"pinterest");
+                    
+                }
 
+            foreach ($team_member_social_field as $value) {
+                if(!empty($value))
+                    {
+                        ?>
+                    <tr><td>
+                    <input type="text" name="team_member_social_field[<?php echo $value; ?>]" value="<?php if(isset($team_member_social_field[$value])) echo $team_member_social_field[$value]; else echo $value; ?>"  /><br />
+                    </td>
+                    </tr>
+                        <?php
+                    
+                    }
+            }
+            
+            ?>
 
+            
+            </table> 
+            
 
-	<tr valign="top">
-        <td style="vertical-align:middle;">
-        <strong>Ribbons</strong><br /><br /> 
-    	<span style=" color:#22aa5d;font-size: 12px;">You can use your own ribbons icon by inserting ribbon url to text field, image size for ribbons must be same as 90px × 24px</span>
-        <table>
-        
-        	<tr>
-            <td>Best</td>
-            <td><img title="size - 90px * 24px " src="<?php if(empty($team_ribbons["best"])) echo team_plugin_url."css/ribbons/best.png";  else echo $team_ribbons["best"]; ?>"  /></td>
-            <td><input class="team_ribbons" size="50%" name="team_ribbons[best]" type="text" value="<?php if(empty($team_ribbons["best"])) echo team_plugin_url."css/ribbons/best.png";  else echo $team_ribbons["best"]; ?>"  /></td>
-            </tr>
-          
-        </table>
-    
-    
-    
-    
-        </td>
-    </tr>
-</table>
+            <div class="button new_team_member_social_field">Add New</div>
+
+ 		</div>
+    </div>
 
 
 

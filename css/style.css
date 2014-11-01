@@ -21,44 +21,6 @@
 
 
 
-
-#team_metabox ul.tab-nav {
-  clear: both;
-  margin: 0;
-  padding: 0;
-}
-
-#team_metabox ul.tab-nav li {
-  background: #e6e6e6;
-  cursor: pointer;
-  display: inline-block;
-  float: left;
-  margin: 0;
-  padding: 8px 15px;
-}
-
-#team_metabox ul.tab-nav li.active{
-	background:#d8d6d6;
-	border-top:2px solid #11b063;
-	padding-top:6px;
-	}
-#team_metabox ul.box {
-  clear: both;
-  margin: 0;
-  padding: 0;
-}
-
-#team_metabox ul.box li.tab-box {
-  border: 1px solid rgb(153, 153, 153);
-  display: none;
-  margin: 0;
-  padding: 20px 0 10px 10px;
-  width: 100%;
-}
-
-
-
-
 #team_metabox .team_loading_taxonomy_category {
   background: url("loading.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
   height: 11px;
@@ -67,7 +29,7 @@
 }
 
 
-#team_metabox div..team_taxonomy_category{}
+#team_metabox div.team_taxonomy_category{}
 
 
 #team_metabox ul.content_source_area {
@@ -89,19 +51,9 @@
   padding: 10px 0 10px 5px;
 }
 
-#team_metabox .tab-box td {
-  border-left: 3px solid #fff;
-}
-
-#team_metabox .tab-box td:hover {
-  background: #e6e6e6;
-  border-left: 3px solid #11b063;
-}
 
 
-#team_metabox .tab-box > table {
-  width: 100%;
-}
+
 
 
 

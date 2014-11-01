@@ -1,92 +1,140 @@
+<?php
+
+if ( ! defined('ABSPATH')) exit; // if direct access 
+
+?>
+
+
 <div class="wrap">
 	<?php echo "<h2>".__(team_plugin_name.' Help')."</h2>";?>
     <br />
 
-		  
+	<div class="para-settings">  
         
         
-<h3>Have any issue ?</h3>
+	<h2>Have any issue ?</h2>
 
-<p>Feel free to Contact with any issue for this plugin, Ask any question via forum <a href="http://paratheme.com/qa/">http://paratheme.com/qa/</a> <strong style="color:#139b50;">(free)</strong>
-
-
-
+	<p>Feel free to Contact with any issue for this plugin, Ask any question via forum <a href="http://paratheme.com/qa/">http://paratheme.com/qa/</a> <strong style="color:#139b50;">(free)</strong>
 </p>
 
-<?php
 
-$team_customer_type = get_option('team_customer_type');
-$team_version = get_option('team_version');
-
-
-?>
-<?php
-if($team_customer_type=="free")
-	{
-
-		echo '<p>You are using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of '.team_plugin_name.', To get more feature you could try our premium version. ';
-		
-		echo '<a href="'.team_pro_url.'">'.team_pro_url.'</a></p>';
-		
-	}
-elseif($team_customer_type=="pro")
-	{
-
-		echo '<p>Thanks for using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong> </p>';	
-		
-		
-	}
-
- ?>
-
-
-
-
-<?php
-if($team_customer_type=="free")
-	{
-?>
-<br />
-<b>Premium Version Features</b><br />
-
-<ul class="team-pro-features">
-
-	<li style="color:#139b50;">Life time free update.</li>
-	<li style="color:#139b50;">Life time support via forum.</li>
-	<li style="color:#139b50;">7 Days refund.</li>
-	<li>Unlimited team's anywhere.</li> 
-	<li>Two Different themes.</li>       
-	<li>Fully responsive and mobile ready.</li>
-	<li>Custom number of post query.</li>
-    <li>Query member by categories. <strong style="color:#139b50;">(Premium Only)</strong></li>
-    <li>Query member by id. <strong style="color:#139b50;">(Premium Only)</strong></li>
-	<li>Team post thumbnail images size selection.</li>
-	<li>Team grid thumbnail custom width. <strong style="color:#139b50;">(Premium Only)</strong></li>
-	<li>Team grid thumbnail custom height.</li>  
-	<li>Team grid items text align. <strong style="color:#139b50;">(Premium Only)</strong></li>       
-    <li>Background image for team area.</li>
-	<li>Team member name font color.</li>   
-	<li>Team member name font size.</li>  
-	<li>Team member position font color. <strong style="color:#139b50;">(Premium Only)</strong></li>   
-	<li>Team member position font size. <strong style="color:#139b50;">(Premium Only)</strong></li> 
-	<li>Team member bio font  color. <strong style="color:#139b50;">(Premium Only)</strong></li> 
-	<li>Team member bio font size.</li>
+	<?php
+    
+    $team_customer_type = get_option('team_customer_type');
+    $team_version = get_option('team_version');
     
 
-</ul>
+    if($team_customer_type=="free")
+        {
+    
+            echo '<p>You are using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of '.team_plugin_name.', To get more feature you could try our premium version. ';
+            
+            echo '<a href="'.team_pro_url.'">'.team_pro_url.'</a></p>';
+            
+        }
+    elseif($team_customer_type=="pro")
+        {
+    
+            echo '<p>Thanks for using <strong> premium version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong> </p>';	
+            
+            
+        }
+    
+     ?>
 
 
+	<h2>Tutorial</h2>
+	<p>Please watch this video tutorial.</p>
+    
+	<iframe width="640" height="480" src="//www.youtube.com/embed/8OiNCDavSQg?rel=0" frameborder="0" allowfullscreen></iframe>
 
-</p>
+
+<?php
+if($team_customer_type=="free")
+	{
+?>
+
+
         
+
+
+
+
+	<div class="pricing-table">
+        <h2>Pricing</h2>
+        <p>you could try our premium version for features.</p>
+        <div class="column">
+            <div class="paln">Free</div>
+            <div class="price">$0</div>
+            <div class="cell"><span class="green">Life time free update.</span></div> 
+            <div class="cell"><span class="red">Life time support via forum.</span></div>
+            <div class="cell"><span class="red">Not applicable.</span></div>                         
+            <div class="cell"><span class="green">Responsive Design.</span></div>        
+            <div class="cell"><span class="red">Themes(Limited).</span></div>        
+            <div class="cell"><span class="red">Grid thumbnail custom width.</span></div>
+            <div class="cell"><span class="green">Grid thumbnail custom height.</span></div>
+            <div class="cell"><span class="green">Grid Item Align.</span></div>              
+            <div class="cell"><span class="red">Grid items text align.</span></div> 
+            <div class="cell"><span class="green">Background image for team area.</span></div> 
+            <div class="cell"><span class="green">Member name font color.</span></div> 
+            <div class="cell"><span class="red">Member name font size.</span></div> 
+            <div class="cell"><span class="red">Member position font color.</span></div> 
+            <div class="cell"><span class="red">Member position font size.</span></div> 
+            <div class="cell"><span class="green">Member bio font color.</span></div> 
+            <div class="cell"><span class="red">Member bio font size.</span></div> 
+            <div class="cell"><span class="green">Grid Items Margin.</span></div> 
+            <div class="cell"><span class="green">Member Bio Max Height.</span></div>
+            <div class="cell"><span class="red">Display from Member Categories.</span></div>        
+            <div class="cell"><span class="red">Display by Member id.</span></div>        
+            <div class="cell"><span class="green">Responsive admin panel.</span></div> 
+            <div class="price">$0</div>
+        </div>
         
+        <div class="column">
+            <div class="paln">Premium</div>
+			<div class="price"><a target="_blank" class="buy-now" href="<?php echo team_pro_url; ?>">$5 Buy Now</a></div>
+            <div class="cell"><span class="green">Life time free update.</span></div> 
+            <div class="cell"><span class="green">Life time support via forum.</span></div>
+            <div class="cell"><span class="green">7 Days refund.</span></div>        
+            <div class="cell"><span class="green">Responsive Design.</span></div>        
+            <div class="cell"><span class="green">Themes(All).</span></div>        
+            <div class="cell"><span class="green">Grid thumbnail custom width.</span></div>
+            <div class="cell"><span class="green">Grid thumbnail custom height.</span></div>
+            <div class="cell"><span class="green">Grid Item Align.</span></div> 
+            <div class="cell"><span class="green">Grid items text align.</span></div> 
+            <div class="cell"><span class="green">Background image for team area.</span></div> 
+            <div class="cell"><span class="green">Member name font color.</span></div> 
+            <div class="cell"><span class="green">Member name font size.</span></div> 
+            <div class="cell"><span class="green">Member position font color.</span></div> 
+            <div class="cell"><span class="green">Member position font size.</span></div> 
+            <div class="cell"><span class="green">Member bio font color.</span></div> 
+            <div class="cell"><span class="green">Member bio font size.</span></div> 
+            <div class="cell"><span class="green">Grid Items Margin.</span></div> 
+            <div class="cell"><span class="green">Member Bio Max Height.</span></div>
+            <div class="cell"><span class="green">Display from Member Categories.</span></div>        
+            <div class="cell"><span class="green">Display by Member id.</span></div>        
+            <div class="cell"><span class="green">Responsive admin panel.</span></div>
+            <div class="price"><a target="_blank" class="buy-now" href="<?php echo team_pro_url; ?>">$5 Buy Now</a></div>
+        </div>    
+        
+    </div>
+
+
+
+</div>
+
+
+
+
+
+ 
         
       <?php
       }
 	  
 	  ?>  
       
-<br /> 
+<br /> <br /> <br /> 
 <h3>Please share this plugin with your friends?</h3>
 <table>
 <tr>
@@ -116,7 +164,20 @@ if($team_customer_type=="free")
 
 </table>
         
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
          
 </div>
 <style type="text/css">
