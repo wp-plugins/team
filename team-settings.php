@@ -40,7 +40,7 @@ else
 
     <div class="para-settings">
 		<div class="option-box">
-			<p class="option-title">Display input field on user profile.</p>
+			<p class="option-title">Display input field on member page.</p>
  			<p class="option-info">By adding bellow input you can control extra input field under member page. if you want to remove one profile field then please empty this field and save changes or to add new profile field simply click add new. some default profile fields are facebook, twitter, googleplus, pinterest.</p>
 			<table class="team_member_social_field">
                     
