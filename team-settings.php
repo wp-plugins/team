@@ -135,6 +135,19 @@ else
                 </div>
                 
 				<div class="option-box">
+                    <p class="option-title">Submit Reviews...</p>
+                    <p class="option-info">We are working hard to build some awesome plugins for you and spend thousand hour for plugins. we wish your three(3) minute by submitting five star reviews at wordpress.org. if you have any issue please submit at forum.</p>
+                	<img class="team-pro-pricing" src="<?php echo team_plugin_url."css/five-star.png";?>" /><br />
+                    <a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/team">
+                	https://wordpress.org/support/view/plugin-reviews/team
+               		</a>
+                    
+                    
+                    
+                </div>
+                
+                
+				<div class="option-box">
                     <p class="option-title">Please Share</p>
                     <p class="option-info">If you like this plugin please share with your social share network.</p>
                 	
@@ -142,8 +155,7 @@ else
                     
 						echo team_share_plugin();
 					?>
-                    
-                    
+
                 </div>
                 
 				<div class="option-box">
