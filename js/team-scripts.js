@@ -16,7 +16,16 @@ jQuery(document).ready(function($)
 			{
 				var user_profile_social = prompt("Please add new social site","");
 				
+				if(user_profile_social=='' || user_profile_social==null)
+					{
+					
+					}
+				else
+					{
 				$(".team_member_social_field").append('<input type="text" name="team_member_social_field['+user_profile_social+']" value="'+user_profile_social+'"  /><br />');
+					}
+				
+
 
 			
 		

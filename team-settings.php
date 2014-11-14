@@ -22,6 +22,13 @@ else
 			<?php
 			} 
 	}
+	
+	
+	
+    $team_customer_type = get_option('team_customer_type');
+    $team_version = get_option('team_version');
+	
+	
 ?>
 
 
@@ -39,42 +46,139 @@ else
 		?>
 
     <div class="para-settings">
-		<div class="option-box">
-			<p class="option-title">Display input field on member page.</p>
- 			<p class="option-info">By adding bellow input you can control extra input field under member page. if you want to remove one profile field then please empty this field and save changes or to add new profile field simply click add new. some default profile fields are facebook, twitter, googleplus, pinterest.</p>
-			<table class="team_member_social_field">
-                    
-              
-            <?php 
-
-            if(empty($team_member_social_field))
-                {
-                    $team_member_social_field = array("facebook"=>"facebook","twitter"=>"twitter","googleplus"=>"googleplus","pinterest"=>"pinterest");
-                    
-                }
-
-            foreach ($team_member_social_field as $value) {
-                if(!empty($value))
-                    {
-                        ?>
-                    <tr><td>
-                    <input type="text" name="team_member_social_field[<?php echo $value; ?>]" value="<?php if(isset($team_member_social_field[$value])) echo $team_member_social_field[$value]; else echo $value; ?>"  /><br />
-                    </td>
-                    </tr>
-                        <?php
-                    
+    
+    
+        <ul class="tab-nav"> 
+            <li nav="1" class="nav1 active">Options</li>
+            <li nav="2" class="nav2">Help & Upgrade</li>
+        </ul> <!-- tab-nav end -->    
+		<ul class="box">
+            <li style="display: block;" class="box1 tab-box active">
+                <div class="option-box">
+                    <p class="option-title">Display input field on team member profile.</p>
+                    <p class="option-info">By adding bellow input you can control extra input field under member page. if you want to remove one profile field then please empty this field and save changes or to add new profile field simply click add new. Some default profile fields are facebook, twitter, googleplus, pinterest.</p>
+                    <table class="team_member_social_field">
+                            
+                      
+                    <?php 
+        
+                    if(empty($team_member_social_field))
+                        {
+                            $team_member_social_field = array("facebook"=>"facebook","twitter"=>"twitter","googleplus"=>"googleplus","pinterest"=>"pinterest");
+                            
+                        }
+        
+                    foreach ($team_member_social_field as $value) {
+                        if(!empty($value))
+                            {
+                                ?>
+                            <tr><td>
+                            <input type="text" name="team_member_social_field[<?php echo $value; ?>]" value="<?php if(isset($team_member_social_field[$value])) echo $team_member_social_field[$value]; else echo $value; ?>"  /><br />
+                            </td>
+                            </tr>
+                                <?php
+                            
+                            }
                     }
-            }
+                    
+                    ?>
+        
+                    
+                    </table> 
+                    
+        
+                    <div class="button new_team_member_social_field">Add New</div>
+        
+                </div>   
             
-            ?>
-
             
-            </table> 
             
+            
+            </li>
+            <li style="display: none;" class="box2 tab-box active">
+				<div class="option-box">
+                    <p class="option-title">Need Help ?</p>
+                    <p class="option-info">Feel free to Contact with any issue for this plugin, Ask any question via forum <a href="<?php echo team_qa_url; ?>"><?php echo team_qa_url; ?></a> <strong style="color:#139b50;">(free)</strong><br />
+                    
+                    
+                    
 
-            <div class="button new_team_member_social_field">Add New</div>
+    <?php
 
- 		</div>
+
+    if($team_customer_type=="free")
+        {
+    
+            echo 'You are using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong>, To get more feature you could try our premium version. ';
+            
+            echo '<a href="'.team_pro_url.'">'.team_pro_url.'</a>';
+            
+        }
+    else
+        {
+    
+            echo 'Thanks for using <strong> premium version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong> ';	
+            
+            
+        }
+    
+     ?>       
+
+           
+                    
+                    
+                    
+                    </p>
+                    
+                    
+                    
+                </div>
+                
+				<div class="option-box">
+                    <p class="option-title">Please Share</p>
+                    <p class="option-info">If you like this plugin please share with your social share network.</p>
+                	
+                    <?php
+                    
+						echo team_share_plugin();
+					?>
+                    
+                    
+                </div>
+                
+				<div class="option-box">
+                    <p class="option-title">Video Tutorial</p>
+                    <p class="option-info">Please watch this video tutorial.</p>
+                	<iframe width="640" height="480" src="<?php echo team_tutorial_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+                
+<?php
+    if($team_customer_type=="free")
+        {	
+?>
+                
+                
+				<div class="option-box">
+                    <p class="option-title">Comparison</p>
+                    <p class="option-info">You could try our premium version for more features.</p>
+                    <a target="_blank" href="<?php echo team_pro_url; ?>">
+                	<img class="team-pro-pricing" src="<?php echo team_plugin_url."css/team-pro-pricing.png";?>" />
+               		</a>
+             </div>  
+<?php    
+		}
+
+?>
+                
+            </li>
+
+        </ul>
+    
+    
+    
+    
+		
     </div>
 
 

@@ -4,9 +4,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 
 function team_body_flat($post_id)
 	{
-		
-		
-		
+
 		$team_bg_img = get_post_meta( $post_id, 'team_bg_img', true );
 		$team_themes = get_post_meta( $post_id, 'team_themes', true );
 		$team_grid_item_align = get_post_meta( $post_id, 'team_grid_item_align', true );		
@@ -20,21 +18,18 @@ function team_body_flat($post_id)
 		$team_content_month = get_post_meta( $post_id, 'team_content_month', true );
 		$team_content_month_year = get_post_meta( $post_id, 'team_content_month_year', true );
 		
+		$team_posttype = 'team_member';
 		$team_taxonomy = 'team_group';
 		$team_taxonomy_category = get_post_meta( $post_id, 'team_taxonomy_category', true );	
-		
-		$team_posttype = 'team_member';
-		
-		
-		$team_post_ids = get_post_meta( $post->ID, 'team_post_ids', true );
 
 
-
-
-		
+		$team_post_ids = get_post_meta( $post_id, 'team_post_ids', true );
 
 		$team_items_title_color = get_post_meta( $post_id, 'team_items_title_color', true );			
 		$team_items_title_font_size = get_post_meta( $post_id, 'team_items_title_font_size', true );		
+
+		$team_items_position_font_size = get_post_meta( $post_id, 'team_items_position_font_size', true );
+		$team_items_position_color = get_post_meta( $post_id, 'team_items_position_color', true );
 
 		$team_items_content_color = get_post_meta( $post_id, 'team_items_content_color', true );
 		$team_items_content_font_size = get_post_meta( $post_id, 'team_items_content_font_size', true );
@@ -53,7 +48,7 @@ function team_body_flat($post_id)
 		
 		$team_body .= '
 		<div  class="team-container" style="background-image:url('.$team_bg_img.');text-align:'.$team_grid_item_align.';">
-		<div style="background:'.$team_middle_line_bg.'" class="middle-line"></div>
+
 		<ul  id="team-'.$post_id.'" class="team-items team-flat">';
 		
 		global $wp_query;
@@ -116,7 +111,7 @@ function team_body_flat($post_id)
 
 			}
 
-		elseif($team_content_source="taxonomy")
+		elseif($team_content_source=="taxonomy")
 			{
 				$wp_query = new WP_Query(
 					array (
@@ -156,39 +151,22 @@ function team_body_flat($post_id)
 		
 		if ( $wp_query->have_posts() ) :
 		
-		
-		
-		$i=0;
+
 		
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
 		
-		$team_featured = get_post_meta( get_the_ID(), '_featured', true );
-		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $team_items_thumb_size );
+
+		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $team_items_thumb_size );
 		$team_thumb_url = $team_thumb['0'];
 		
 		
-		
-		
-		if($i%2==0)
-			{
-				$even_odd = "even";
-			}
-		else
-			{
-				$even_odd = "odd";
-			}
+
 			
 			
 		
-		$team_body.= '<li style="width:'.$team_items_max_width.';text-align:'.$team_item_text_align.';margin:20px '.$team_items_margin.'" class="team-item '.$even_odd.'" >';
+		$team_body.= '<li style="width:'.$team_items_max_width.';text-align:'.$team_item_text_align.';margin:20px '.$team_items_margin.'" class="team-item" >';
 		$team_body.= '<div class="team-post">';		
-		
-			
-		if($team_featured=="yes")
-			{
-			$team_body.= '<div class="team-featured"></div>';
-			}
-		
+
 		if(!empty($team_thumb_url))
 			{
 					$team_body.= '
@@ -280,7 +258,7 @@ function team_body_flat($post_id)
 		</li>';
 		
 		
-		$i++;
+
 		
 		endwhile;
 		

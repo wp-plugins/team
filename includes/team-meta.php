@@ -379,30 +379,12 @@ function meta_boxes_team_input( $post ) {
 	 				</script>';
       
 			}
-		elseif($team_customer_type=="pro")
+		else
 			{
-				//premium customer support.
+				
 			}
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <table class="form-table">
@@ -493,7 +475,10 @@ function meta_boxes_team_input( $post ) {
                     <p class="option-info">Themes for Team grid.</p>
                     <select name="team_themes"  >
                     <option class="team_themes_flat" value="flat" <?php if($team_themes=="flat")echo "selected"; ?>>Flat</option>
-                    <option class="team_themes_flat-bg" value="flat-bg" <?php if($team_themes=="flat-bg")echo "selected"; ?>>Flat Background</option>                    
+                    <option class="team_themes_flat-bg" value="flat-bg" <?php if($team_themes=="flat-bg")echo "selected"; ?>>Flat Background</option>
+                    <option class="team_themes_rounded" value="rounded" <?php if($team_themes=="rounded")echo "selected"; ?>>Rounded</option>                    
+                    
+                                      
                     </select>
 				</div>
             
@@ -511,7 +496,7 @@ function meta_boxes_team_input( $post ) {
             
             
 				<div class="option-box">
-                    <p class="option-title">Grid Items Text Align.</p>
+                    <p class="option-title">Grid Member Items Text Align.</p>
                     <p class="option-info"></p>
                     <select id="team_item_text_align" name="team_item_text_align"  >
                     <option class="team_item_text_align" value="left" <?php if($team_item_text_align=="left")echo "selected"; ?>>Left</option>
@@ -603,47 +588,47 @@ function meta_boxes_team_input( $post ) {
 
 				<div class="option-box">
                     <p class="option-title">Member Name Font Color.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font color for member name.</p>
                     <input type="text" name="team_items_title_color" id="team_items_title_color" value="<?php if(!empty($team_items_title_color)) echo $team_items_title_color; else echo ""; ?>" />
 				</div>
 
 				<div class="option-box">
                     <p class="option-title">Member Name Font Size.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font Size for member name.</p>
                     <input type="text" name="team_items_title_font_size" placeholder="ex:14px number with px" id="team_items_title_font_size" value="<?php if(!empty($team_items_title_font_size)) echo $team_items_title_font_size; else echo "14px"; ?>" />
 				</div>
 
 
 				<div class="option-box">
                     <p class="option-title">Member Position Font Color.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font color for member position text.</p>
                     <input type="text" name="team_items_position_color" placeholder="#ffffff" id="team_items_position_color" value="<?php if(!empty($team_items_position_color)) echo $team_items_position_color; else echo ""; ?>" />
 				</div>
 
 				<div class="option-box">
                     <p class="option-title">Member Position Font Size.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font Size for member position text.</p>
                     <input type="text" name="team_items_position_font_size" placeholder="ex:12px number with px" id="team_items_position_font_size" value="<?php if(!empty($team_items_position_font_size)) echo $team_items_position_font_size; else echo ""; ?>" />
 				</div>
 
 
 				<div class="option-box">
                     <p class="option-title">Member Bio Font Color.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font color for member bio content.</p>
                     <input type="text" name="team_items_content_color" id="team_items_content_color" value="<?php if(!empty($team_items_content_color)) echo $team_items_content_color; else echo ""; ?>" />
 				</div>
 
 
 				<div class="option-box">
                     <p class="option-title">Member Bio Font Size.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Font size for member bio content.</p>
                     <input type="text" name="team_items_content_font_size" id="team_items_content_font_size" value="<?php if(!empty($team_items_content_font_size)) echo $team_items_content_font_size; else echo "13px"; ?>" />
 				</div>
 
 
 				<div class="option-box">
                     <p class="option-title">Member Bio Max Height.</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">Number with px</p>
                     <input type="text" name="team_items_content_height" id="team_items_content_height" value="<?php if(!empty($team_items_content_height)) echo $team_items_content_height; else echo "100px"; ?>" />
 				</div>
 

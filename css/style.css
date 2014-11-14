@@ -20,15 +20,6 @@
 
 
 
-
-#team_metabox .team_loading_taxonomy_category {
-  background: url("loading.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-  height: 11px;
-  margin-bottom: 20px;
-  width: 30px;
-}
-
-
 #team_metabox div.team_taxonomy_category{}
 
 

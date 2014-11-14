@@ -2,7 +2,7 @@
 
 if ( ! defined('ABSPATH')) exit; // if direct access 
 
-function team_body_flat_bg($post_id)
+function team_body_rounded($post_id)
 	{
 		
 		$team_bg_img = get_post_meta( $post_id, 'team_bg_img', true );
@@ -17,7 +17,7 @@ function team_body_flat_bg($post_id)
 		$team_content_year = get_post_meta( $post_id, 'team_content_year', true );
 		$team_content_month = get_post_meta( $post_id, 'team_content_month', true );
 		$team_content_month_year = get_post_meta( $post_id, 'team_content_month_year', true );
-
+		
 		$team_posttype = 'team_member';
 		$team_taxonomy = 'team_group';
 		$team_taxonomy_category = get_post_meta( $post_id, 'team_taxonomy_category', true );	
@@ -26,6 +26,9 @@ function team_body_flat_bg($post_id)
 
 		$team_items_title_color = get_post_meta( $post_id, 'team_items_title_color', true );			
 		$team_items_title_font_size = get_post_meta( $post_id, 'team_items_title_font_size', true );		
+
+		$team_items_position_font_size = get_post_meta( $post_id, 'team_items_position_font_size', true );
+		$team_items_position_color = get_post_meta( $post_id, 'team_items_position_color', true );
 
 		$team_items_content_color = get_post_meta( $post_id, 'team_items_content_color', true );
 		$team_items_content_font_size = get_post_meta( $post_id, 'team_items_content_font_size', true );
@@ -44,15 +47,15 @@ function team_body_flat_bg($post_id)
 		
 		$team_body .= '
 		<div  class="team-container" style="background-image:url('.$team_bg_img.');text-align:'.$team_grid_item_align.';">
-		<div style="background:'.$team_middle_line_bg.'" class="middle-line"></div>
-		<ul  id="team-'.$post_id.'" class="team-items team-'.$team_themes.'">';
+
+		<ul  id="team-'.$post_id.'" class="team-items team-rounded">';
 		
 		global $wp_query;
 		
 
 
 		
-		if($team_content_source=="latest")
+		if(($team_content_source=="latest"))
 			{
 			
 				$wp_query = new WP_Query(
@@ -67,7 +70,7 @@ function team_body_flat_bg($post_id)
 			
 			}		
 		
-		elseif($team_content_source=="older")
+		elseif(($team_content_source=="older"))
 			{
 			
 				$wp_query = new WP_Query(
@@ -81,7 +84,7 @@ function team_body_flat_bg($post_id)
 
 			}		
 
-		elseif($team_content_source=="year")
+		elseif(($team_content_source=="year"))
 			{
 			
 				$wp_query = new WP_Query(
@@ -93,7 +96,7 @@ function team_body_flat_bg($post_id)
 
 			}
 
-		elseif($team_content_source=="month")
+		elseif(($team_content_source=="month"))
 			{
 			
 				$wp_query = new WP_Query(
@@ -123,11 +126,13 @@ function team_body_flat_bg($post_id)
 						)
 						
 						) );
+		
+						
 			}
 
 
 		
-		elseif($team_content_source=="post_id")
+		elseif(($team_content_source=="post_id"))
 			{
 			
 				$wp_query = new WP_Query(
@@ -156,7 +161,6 @@ function team_body_flat_bg($post_id)
 
 		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $team_items_thumb_size );
 		$team_thumb_url = $team_thumb['0'];
-		
 
 			
 			
@@ -164,13 +168,13 @@ function team_body_flat_bg($post_id)
 		$team_body.= '<li style="width:'.$team_items_max_width.';text-align:'.$team_item_text_align.';margin:20px '.$team_items_margin.'" class="team-item" >';
 		$team_body.= '<div class="team-post">';		
 		
-			
 
+		
 		if(!empty($team_thumb_url))
 			{
 					$team_body.= '
-		<div style="height:'.$team_items_thumb_max_hieght.';" class="team-thumb">
-			<img src="'.$team_thumb_url.'" />
+		<div  class="team-thumb">
+			<img style="width:'.$team_items_thumb_max_hieght.';height:'.$team_items_thumb_max_hieght.';" src="'.$team_thumb_url.'" />
 
 		</div>';
 			}
@@ -255,6 +259,8 @@ function team_body_flat_bg($post_id)
 			</div>
 
 		</li>';
+		
+		
 
 		
 		endwhile;

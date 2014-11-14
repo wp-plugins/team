@@ -4,7 +4,7 @@
 	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
 	Tested up to: 4.0
-	Stable tag: 1.2
+	Stable tag: 1.3
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,13 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 
 == Changelog ==
 
+
+	= 1.3=
+	
+    * 15/11/2014 php error fixed.
+    * 15/11/2014 js error fixed.
+    * 15/11/2014 Responsive admin.
+    * 15/11/2014 remove help page and added help tab.
 
 	= 1.2 =
 	

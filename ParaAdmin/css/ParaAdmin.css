@@ -4,6 +4,9 @@
 
 /*Admin CSS*/
 
+.para-settings {
+  margin: 20px 0;
+}
 
 .para-settings .option-box {
   border-left: 3px solid rgb(255, 255, 255);
@@ -179,6 +182,171 @@
 
 
 
+.para-settings .data-table {
+  border: 1px solid rgb(199, 199, 199);
+  border-collapse: collapse;
+}
+
+.para-settings .data-table tr {
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+
+.para-settings .data-table th {
+  border-bottom: 2px solid rgb(253, 197, 28);
+  border-collapse: collapse;
+  padding: 10px 20px 10px 8px;
+}
+
+
+.para-settings .data-table td {
+  border-bottom: 1px solid rgb(199, 199, 199);
+  border-collapse: collapse;
+  padding: 10px 20px 10px 8px;
+}
+
+.para-settings .button {
+  margin: 20px 0;
+}
+
+.para-settings .success {
+  background: none repeat scroll 0 0 rgb(105, 221, 157);
+  padding: 5px 10px;
+  display:none;
+}
+.para-settings .para-form-table {
+
+  border-collapse: collapse;
+}
+
+.para-settings .para-form-table tr {
+
+}
+
+
+.para-settings .para-form-table th {
+  border-collapse: collapse;
+  padding: 10px 20px 10px 8px;
+  text-align: left;
+  vertical-align: top;
+  width: 200px;
+}
+
+.para-settings .para-form-table td {
+
+  border-collapse: collapse;
+  padding: 10px 20px 10px 8px;
+}
+
+.para-settings pre {
+
+}
+
+
+
+/*para-dashboard*/
+
+.para-dashboard {
+  background: none repeat scroll 0 0 rgb(91, 116, 145);
+  padding: 10px;
+}
+
+.para-dashboard .dash-box {
+  background: none repeat scroll 0 0 rgb(93, 126, 163);
+  border: 1px solid rgb(122, 170, 223);
+  display: inline-block;
+  height: auto;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  margin-top: 0;
+  overflow: hidden;
+  padding-bottom: 30px;
+  vertical-align: top;
+  width: 350px;
+}
+
+.para-dashboard .dash-box-title {
+  background: none repeat scroll 0 0 rgb(100, 140, 186);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+  padding: 0 10px;
+}
+
+.para-dashboard .dash-box-title .fa {
+  padding-right: 10px;
+}
+
+.para-dashboard .dash-box-info {
+  color: rgb(238, 238, 238);
+  font-size: 12px;
+  padding: 10px;
+}
+
+.para-dashboard .dash-box .total-online {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  padding: 30px 10px 10px;
+  text-align: center;
+}
+
+.para-dashboard .dash-box .total-session {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  padding: 30px 10px 10px;
+  text-align: center;
+}
+
+.para-dashboard .dash-box .unique-visitor {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  padding: 30px 10px 10px;
+  text-align: center;
+}
+
+
+
+
+
+.para-dashboard .dash-box .para-data-table {
+  border: 1px solid rgb(221, 221, 221);
+  border-collapse: collapse;
+  color: rgb(255, 255, 255);
+  text-align: left;
+}
+
+.para-dashboard .dash-box .para-data-table th {
+  padding: 7px;
+}
+.para-dashboard .dash-box tr {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.para-dashboard .dash-box .para-data-table td {
+  padding: 5px;
+}
+
+.para-dashboard .dash-box .para-data-table a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media all and (max-width: 799px) {
@@ -219,3 +387,17 @@
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
