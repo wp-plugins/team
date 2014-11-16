@@ -1,4 +1,4 @@
-=== Team ===
+=== Team - Meet The Team Grid ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
