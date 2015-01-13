@@ -1,11 +1,9 @@
 <?php
 
 
-
-
 if ( ! defined('ABSPATH')) exit; // if direct access 
 
-
+add_theme_support('post-thumbnails', array('team_member'));
 
 function team_get_all_post_ids($postid)
 	{
