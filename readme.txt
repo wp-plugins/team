@@ -97,7 +97,8 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 
 	= 1.4=
 	
-    * 15/11/2014 - add - display team under text widget.
+    * 110/02/2015 add display team under text widget.
+
 
 	= 1.3=
 	
