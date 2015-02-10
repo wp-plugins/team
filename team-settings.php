@@ -100,39 +100,47 @@ else
                     <p class="option-title">Need Help ?</p>
                     <p class="option-info">Feel free to Contact with any issue for this plugin, Ask any question via forum <a href="<?php echo team_qa_url; ?>"><?php echo team_qa_url; ?></a> <strong style="color:#139b50;">(free)</strong><br />
                     
+                    </p>
                     
                     
-
-    <?php
-
-
-    if($team_customer_type=="free")
-        {
-    
-            echo 'You are using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong>, To get more feature you could try our premium version. ';
-            
-            echo '<a href="'.team_pro_url.'">'.team_pro_url.'</a>';
-            
-        }
-    else
-        {
-    
-            echo 'Thanks for using <strong> premium version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong> ';	
-            
-            
-        }
-    
-     ?>       
+                    
+                </div>
+                
+                
+				<div class="option-box">
+                    <p class="option-title">Upgrade</p>
+                    <p class="option-info">
+					<?php
+                
+                
+                    if($team_customer_type=="free")
+                        {
+                    
+                            echo 'You are using <strong> '.$team_customer_type.' version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong>, To get more feature you could try our premium version. ';
+                            
+                            echo '<br /><a href="'.team_pro_url.'">'.team_pro_url.'</a>';
+                            
+                        }
+                    else
+                        {
+                    
+                            echo 'Thanks for using <strong> premium version  '.$team_version.'</strong> of <strong>'.team_plugin_name.'</strong> ';	
+                            
+                            
+                        }
+                    
+                     ?>       
 
            
                     
                     
                     
                     </p>
-                    
-                    
-                    
+                	
                 </div>
+                
+                
+                
                 
 				<div class="option-box">
                     <p class="option-title">Submit Reviews...</p>
@@ -163,26 +171,7 @@ else
                     <p class="option-info">Please watch this video tutorial.</p>
                 	<iframe width="640" height="480" src="<?php echo team_tutorial_video_url; ?>" frameborder="0" allowfullscreen></iframe>
                 </div>
-                
-                
-<?php
-    if($team_customer_type=="free")
-        {	
-?>
-                
-                
-				<div class="option-box">
-                    <p class="option-title">Comparison</p>
-                    <p class="option-info">You could try our premium version for more features.</p>
-                    <a target="_blank" href="<?php echo team_pro_url; ?>">
-                	<img class="team-pro-pricing" src="<?php echo team_plugin_url."css/team-pro-pricing.png";?>" />
-               		</a>
-             </div>  
-<?php    
-		}
-
-?>
-                
+   
             </li>
 
         </ul>
