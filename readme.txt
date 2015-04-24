@@ -3,8 +3,8 @@
 	Donate link: http://paratheme.com
 	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
-	Tested up to: 4.0
-	Stable tag: 1.3
+	Tested up to: 4.1
+	Stable tag: 1.4
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,16 +18,16 @@ Display team member profiles with descriptions and links to social media using o
 
 ### Team by http://paratheme.com
 
-* [Upgrade to Premium!&raquo;](http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/)
-* [Watch Video Tutorial!&raquo;](https://www.youtube.com/watch?v=8OiNCDavSQg)
-
+* [Upgrade to Premium! &raquo;](http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/)
+* [Watch Video Tutorial! &raquo;](https://www.youtube.com/watch?v=8OiNCDavSQg)
+* [Live Demo! &raquo;](http://paratheme.com/demo/team/)
 
 <strong>Plugin Features</strong><br />
 
 * Fully responsive and mobile ready.
-* Query Team meamber from latest, Older Published, by Only Year, by Month of a year, Categories, post id.
+* Query Team meamber from latest, Older Published, by Only Year, by Month of a year
 * Unlimited team's anywhere.
-* Two Different themes.
+* Three Different themes.
 * Custom number of member query.
 * Team member thumbnail images size selection.
 * Team grid thumbnail custom width.
@@ -36,10 +36,21 @@ Display team member profiles with descriptions and links to social media using o
 * Background image for team area.
 * Team member name font color.
 * Team member name font size.
-* Team member position font color.
-* Team member position font size.
-* Team member bio font color.
-* Team member bio font size.
+
+<strong>Premium Features</strong><br />
+
+* Total four themes.
+* Query Team meamber from team group(categories), team member id's.
+* Grid thumbnail custom width.
+* Grid items text align.
+* Member bio font size.
+* Member position font color.
+* Member position font size.
+* Custom icons for custom profile field.
+* Click-able link to custom post team members.
+* Click-able link to custom link to team members.
+* Popup profile box on click member thumbnail.
+* and more on updating.
 
 <strong>Video Tutorial Here.</strong>
 https://www.youtube.com/watch?v=8OiNCDavSQg
@@ -82,6 +93,11 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 5. screenshot-5
 
 == Changelog ==
+
+
+	= 1.4=
+	
+    * 110/02/2015 add display team under text widget.
 
 
 	= 1.3=

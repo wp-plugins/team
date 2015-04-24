@@ -3,7 +3,7 @@
 Plugin Name: Team
 Plugin URI: http://paratheme.com/items/team-responsive-meet-the-team-grid-for-wordpress/
 Description: Fully responsive and mobile ready meet the team showcase plugin for wordpress.
-Version: 1.3
+Version: 1.4
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -77,7 +77,7 @@ register_activation_hook(__FILE__, 'team_activation');
 
 function team_activation()
 	{
-		$team_version= "1.3";
+		$team_version= "1.4";
 		update_option('team_version', $team_version); //update plugin version.
 		
 		$team_customer_type= "free"; //customer_type "free"
