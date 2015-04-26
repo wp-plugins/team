@@ -113,7 +113,6 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 	
     * 10/02/2015 add display team under text widget.
 
-
 	= 1.3=
 	
     * 15/11/2014 php error fixed.
@@ -127,8 +126,7 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
     * 28/10/2014 added input field for member bio height.
     * 30/10/2014 Responsive admin settings.
     * 25/10/2014 added input field for margin to grid items.
-	
-		
+
 	= 1.1 =
 	
     * 01/10/2014 added email link to profile.
